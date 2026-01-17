@@ -19,7 +19,7 @@ const groomsmen = [
   { name: 'Carlos', photo: 'assets/photos/guests-of-honor/eduardo.png' },
   { name: 'Lucas', photo: 'assets/photos/guests-of-honor/eduardo.png' },
   { name: 'Marcos', photo: 'assets/photos/guests-of-honor/eduardo.png' },
-  { name: 'Pedro', photo: 'assets/photos/guests-of-honor/eduardo.png' }
+  { name: 'Pedro', photo: 'assets/photos/guests-of-honor/eduardo.png' },
   { name: 'Rafael', photo: 'assets/photos/guests-of-honor/eduardo.png' },
 ];
 
