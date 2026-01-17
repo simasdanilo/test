@@ -1,0 +1,49 @@
+.gifts {
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.gifts-list {
+  display: flex;
+  flex-direction: column;
+  max-width: 360px;
+  gap: 1.5rem;
+  padding-top: var(--space-5);
+  padding-bottom: var(--space-5);
+  margin: 0 auto;
+}
+
+/* ITEM */
+.gift-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 1rem;
+}
+
+/* IMAGEM */
+.gift-image {
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+/* TEXTO */
+.gift-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.gift-description {
+  margin: 0;
+}
+
+.gift-value {
+  font-weight: 600;
+  font-size: var(--font-size-lg);
+}

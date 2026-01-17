@@ -1,0 +1,45 @@
+:root {
+  --font-family-title: 'Great Vibes', cursive;
+  --font-family-base: 'Quicksand', system-ui, sans-serif;
+
+  --font-size-xs: 0.75rem;
+  --font-size-sm: 0.875rem;
+  --font-size-md: 1rem;
+  --font-size-lg: 1.25rem;
+  --font-size-xl: 1.5rem;
+  --font-size-2xl: 2rem;
+
+  --font-size-title: 2.5rem; 
+  --font-size-text: 1.125rem;
+}
+
+.typography-title {
+  font-family: var(--font-family-title);
+  font-size: var(--font-size-title);
+  line-height: 1.2;
+  font-weight: 500;
+  color: var(--color-typograph-title);
+}
+
+.typography-subtitle {
+  font-family: var(--font-family-base);
+  font-size: var(--font-size-lg);
+  line-height: 1.4;
+  font-weight: 600;
+  color: var(--color-typograph-text);
+}
+
+.typography-text {
+  font-family: var(--font-family-base);
+  font-size: var(--font-size-text);
+  line-height: 1.6;
+  font-weight: 400;
+  color: var(--color-typograph-text);
+}
+
+.typography-caption {
+  font-family: var(--font-family-base);
+  font-size: var(--font-size-sm);
+  line-height: 1.4;
+  color: var(--color-typograph-text);
+}

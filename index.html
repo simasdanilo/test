@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>Casamento de Gab & Felipe</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Quicksand:wght@300;400;500;600&display=swap"
+    rel="stylesheet">
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="styles/index.css">
+
+  <!-- Scripts -->
+  <script src="scripts/gifts.js" defer></script>
+  <script src="scripts/guests-of-honor.js" defer></script>
+  <script src="scripts/map-modal.js" defer></script>
+</head>
+
+<body>
+  <main>
+    <!-- Introdução -->
+    <section>
+      <p class="typography-text">"Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum
+        has been the industry's standard dummy text ever ".</p>
+    </section>
+    <div class="section-separator">
+      <img src="assets/illustrations/section-separator.svg" alt="section separator illustration"
+        class="section-separator-illustration" />
+    </div>
+
+    <!-- Nós -->
+    <section>
+      <h2 class="typography-title section-title">Nós</h2>
+      <p class="typography-text">"Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum
+        has been the industry's standard dummy text ever ".</p>
+      <p class="typography-text">"Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum
+        has been the industry's standard dummy text ever ".</p>
+      <p class="typography-text">"Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum
+        has been the industry's standard dummy text ever ".</p>
+    </section>
+    <div class="section-separator">
+      <img src="assets/illustrations/section-separator.svg" alt="section separator illustration"
+        class="section-separator-illustration" />
+    </div>
+
+    <!-- Convidados de honra-->
+    <section class="section-guests-of-honor">
+      <h2 class="typography-title section-title">Convidados de honra</h2>
+      <!-- Padrinhos -->
+      <div class="honor-group">
+        <h3 class="typography-subtitle honor-subtitle">Padrinhos</h3>
+        <img src="assets/illustrations/subtitle-ornament.svg" alt="" class="honor-subtitle-ornament" />
+        <div class="honor-grid" id="groomsmen"></div>
+      </div>
+
+      <!-- Madrinhas -->
+      <div class="honor-group">
+        <h3 class="typography-subtitle honor-subtitle">Madrinhas</h3>
+        <img src="assets/illustrations/subtitle-ornament.svg" alt="" class="honor-subtitle-ornament" />
+        <div class="honor-grid" id="bridesmaids"></div>
+      </div>
+
+      <!-- Daminhas -->
+      <div class="honor-group">
+        <h3 class="typography-subtitle honor-subtitle">Daminhas</h3>
+        <img src="assets/illustrations/subtitle-ornament.svg" alt="" class="honor-subtitle-ornament" />
+        <div class="honor-grid" id="flower-girls"></div>
+      </div>
+
+      <!-- Celebrante -->
+      <div class="honor-group">
+        <h3 class="typography-subtitle honor-subtitle">Celebrante</h3>
+        <img src="assets/illustrations/subtitle-ornament.svg" alt="" class="honor-subtitle-ornament" />
+        <div class="honor-grid" id="officiant"></div>
+      </div>
+
+    </section>
+
+    <div class="section-separator">
+      <img src="assets/illustrations/section-separator.svg" alt="section separator illustration"
+        class="section-separator-illustration" />
+    </div>
+
+    <!-- Cerimônia e recepção-->
+    <section>
+      <h2 class="typography-title section-title">Cerimônia e Recepção</h2>
+
+
+      <button class="button-primary" id="button-open-map">
+  Ver local no mapa
+</button>
+
+<div class="modal-overlay" id="map-modal">
+  <div class="modal">
+    <button class="button-modal-close" id="button-close-map">×</button>
+
+    <iframe
+      src="https://www.google.com/maps?q=Espaço+Aliança,+Av.+Beira+Mar+419,+Ribeira,+Salvador+Bahia&output=embed"
+      loading="lazy"
+      referrerpolicy="no-referrer-when-downgrade">
+    </iframe>
+  </div>
+</div>
+    </section>
+
+    <div class="section-separator">
+      <img src="assets/illustrations/section-separator.svg" alt="section separator illustration"
+        class="section-separator-illustration" />
+    </div>
+
+
+
+    <!-- Confirme sua presença-->
+    <section>
+      <h2 class="typography-title section-title">Confirme sua presença</h2>
+      <p class="typography-text">"Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum
+        has been the industry's standard dummy text ever ".</p>
+      <button class="button-primary">
+        Cofirmar presença
+      </button>
+    </section>
+
+    <div class="section-separator">
+      <img src="assets/illustrations/section-separator.svg" alt="section separator illustration"
+        class="section-separator-illustration" />
+    </div>
+
+    <!-- Presentar -->
+    <section>
+      <h2 class="typography-title section-title">Presentear</h2>
+      <p class="typography-text">"Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum
+        has been the industry's standard dummy text ever ".</p>
+        <div class="actions-container">
+      <button class="button-primary">
+        Ir para loja de Itaberaba
+      </button>
+      <button class="button-primary">
+        Enviar pix
+      </button>
+      </div>
+    </section>
+    <div class="section-separator">
+      <img src="assets/illustrations/section-separator.svg" alt="section separator illustration"
+        class="section-separator-illustration" />
+    </div>
+
+    <!-- Lista de presentes-->
+    <section>
+      <h2 class="typography-title section-title">Lista de presentes</h2>
+      <div class="gifts-list" id="gifts-list"></div>
+    </section>
+
+    <div class="section-separator">
+      <img src="assets/illustrations/section-separator.svg" alt="section separator illustration"
+        class="section-separator-illustration" />
+    </div>
+
+  </main>
+</body>
+
+</html>

@@ -1,0 +1,14 @@
+
+/* ---------- Core Colors ---------- */
+:root {
+  --color-primary: #fff;
+}
+
+/* ---------- Semantic Colors ---------- */
+:root {
+  --color-action: #aa4f27;
+  --color-title: #6f3720;
+  --color-text: #6f3720;
+  --color-background: #f2edeb;
+  --color-section-separator-background: #381c10;
+}
