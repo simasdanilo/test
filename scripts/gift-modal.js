@@ -33,8 +33,10 @@ closeGiftModal.addEventListener('click', () => {
     unlockScroll();
 });
 
+const modalContent = giftModal.querySelector('.modal');
+
 giftModal.addEventListener('click', (e) => {
-    if (e.target === giftModal) {
+    if (!modalContent.contains(e.target)) {
         giftModal.classList.remove('active');
         unlockScroll();
     }
