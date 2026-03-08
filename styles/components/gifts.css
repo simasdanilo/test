@@ -13,6 +13,7 @@
   padding-top: var(--space-5);
   padding-bottom: var(--space-5);
   margin: 0 auto;
+  gap: var(--space-4);
 }
 
 /* ITEM LINK*/
@@ -26,15 +27,22 @@
 
   text-decoration: none;
   color: inherit;
-  padding: 1rem 0;
+
+  padding: 1rem;
+  /* ALTERADO: antes era "1rem 0", agora tem padding interno completo */
+
+  background-color: var(--color-gift-background);
+
+  border: 1.5px solid var(--color-touchable-border);
+  /* NOVO: borda fina para parecer clicável */
+  border-radius: 1rem;
+  /* NOVO: cantos arredondados estilo card */
+
 }
 
-.gift-container:not(:last-child) {
-  border-bottom: 1px solid var(--color-divider);
-}
 
 .gift-container:active {
-  background: rgba(0, 0, 0, 0.04);
+  background: var(--color-gift-background-pressed);
 }
 
 /* IMAGEM */
