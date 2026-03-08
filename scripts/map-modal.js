@@ -1,7 +1,7 @@
 const openMap = document.getElementById('button-open-map');
 const closeMap = document.getElementById('button-close-map');
 const mapModal = document.getElementById('map-modal');
-
+const mapModalContent = mapModal.querySelector('.modal');
 
 function lockScroll() {
   document.body.style.overflow = "hidden";
@@ -21,12 +21,9 @@ closeMap.addEventListener('click', () => {
   unlockScroll();
 });
 
-
-const modalContent = giftModal.querySelector('.modal');
-
 mapModal.addEventListener('click', (e) => {
-  if (!modalContent.contains(e.target)) {
-    giftModal.classList.remove('active');
+  if (!mapModalContent.contains(e.target)) {
+    mapModal.classList.remove('active');
     unlockScroll();
   }
 });

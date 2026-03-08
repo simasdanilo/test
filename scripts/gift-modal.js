@@ -1,6 +1,7 @@
 const giftModal = document.getElementById('gift-modal');
 const closeGiftModal = document.getElementById('button-close-gift');
-const presentButton = document.getElementById('gift-modal-present');
+const giftButton = document.getElementById('gift-modal-present');
+const giftModalContent = giftModal.querySelector('.modal');
 
 function lockScroll() {
     document.body.style.overflow = "hidden";
@@ -16,8 +17,8 @@ function openGiftModal(gift) {
     document.getElementById('gift-modal-description').textContent = gift.description;
     document.getElementById('gift-modal-value').textContent = formatToMoney(gift.value);
 
-    presentButton.onclick = null;
-    presentButton.onclick = () => {
+    giftButton.onclick = null;
+    giftButton.onclick = () => {
         window.open(gift.link, "_blank", "noopener,noreferrer");
     };
 
@@ -33,10 +34,9 @@ closeGiftModal.addEventListener('click', () => {
     unlockScroll();
 });
 
-const modalContent = giftModal.querySelector('.modal');
 
 giftModal.addEventListener('click', (e) => {
-    if (!modalContent.contains(e.target)) {
+    if (!giftModalContent.contains(e.target)) {
         giftModal.classList.remove('active');
         unlockScroll();
     }
