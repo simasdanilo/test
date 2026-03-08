@@ -59,9 +59,7 @@ function renderGifts(containerId, gifts) {
       </div>
     `;
 
-    // 👇 abre o link em nova aba
     item.onclick = async () => {
-
       const copied = await copyToClipboard(gift.pix);
 
       if (copied) {
@@ -70,7 +68,9 @@ function renderGifts(containerId, gifts) {
         showToast("Não foi possível copiar o Pix");
       }
 
-      // window.open(gift.link, "_blank", "noopener,noreferrer");
+      setTimeout(() => {
+        window.open(gift.link, "_blank", "noopener,noreferrer");
+      }, 800);
     };
 
 
