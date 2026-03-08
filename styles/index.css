@@ -75,6 +75,33 @@ section {
   /* remove underline do <a> */
 }
 
+
+/* TESTE ----- */
+
+#toast {
+  position: fixed;
+  bottom: 24px;
+  left: 50%;
+  transform: translateX(-50%) translateY(20px);
+
+  background: rgba(0, 0, 0, 0.85);
+  color: white;
+
+  padding: 12px 16px;
+  border-radius: 999px;
+
+  font-size: 14px;
+  opacity: 0;
+
+  transition: opacity 0.25s ease, transform 0.25s ease;
+  pointer-events: none;
+}
+
+#toast.show {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+
 /* TESTE ----- */
 
 .photo-divider2 {
