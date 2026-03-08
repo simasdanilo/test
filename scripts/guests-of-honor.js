@@ -1,5 +1,5 @@
 
-function renderGifts(containerId, people) {
+function renderGuestsOfHonor(containerId, people) {
   const container = document.getElementById(containerId);
 
   people.forEach(person => {
@@ -15,31 +15,41 @@ function renderGifts(containerId, people) {
   });
 }
 
+
+const parents = [
+  { name: 'Ana Paula', photo: 'assets/photos/guests-of-honor/Ana Paula.jpg' },
+  { name: 'Jailson', photo: 'assets/photos/guests-of-honor/Jailson.jpg' },
+  { name: 'Claudia', photo: 'assets/photos/guests-of-honor/Claudia.jpg' }
+];
+
+
 const groomsmen = [
-  { name: 'Carlos', photo: 'assets/photos/guests-of-honor/eduardo.png' },
-  { name: 'Lucas', photo: 'assets/photos/guests-of-honor/eduardo.png' },
-  { name: 'Marcos', photo: 'assets/photos/guests-of-honor/eduardo.png' },
-  { name: 'Pedro', photo: 'assets/photos/guests-of-honor/eduardo.png' },
-  { name: 'Rafael', photo: 'assets/photos/guests-of-honor/eduardo.png' },
+  { name: 'Danilo', photo: 'assets/photos/guests-of-honor/Danilo.JPG' },
+  { name: 'Franklin', photo: 'assets/photos/guests-of-honor/Franklin.JPG' },
+  { name: 'Gabriel', photo: 'assets/photos/guests-of-honor/Gabriel.JPG' },
+  { name: 'Vinicius', photo: 'assets/photos/guests-of-honor/Vinicius.JPG' },
 ];
 
 const bridesmaids = [
-  { name: 'Ana', photo: 'assets/photos/guests-of-honor/larissa.png' },
-  { name: 'Julia', photo: 'assets/photos/guests-of-honor/larissa.png' },
-  { name: 'Marina', photo: 'assets/photos/guests-of-honor/larissa.png' },
-  { name: 'Paula', photo: 'assets/photos/guests-of-honor/larissa.png' }
+  { name: 'Ana Flavia', photo: 'assets/photos/guests-of-honor/Ana Flavia.JPG' },
+  { name: 'Carine', photo: 'assets/photos/guests-of-honor/Carine.JPG' },
+  { name: 'Daphne', photo: 'assets/photos/guests-of-honor/Daphne.JPG' },
+  { name: 'Mayara', photo: 'assets/photos/guests-of-honor/Mayara.JPG' },
+  { name: 'Thaina', photo: 'assets/photos/guests-of-honor/Thaina.JPG' }
 ];
 
 const flowerGirls = [
-  { name: 'Sofia', photo: 'assets/photos/guests-of-honor/helena.png' },
-  { name: 'Laura', photo: 'assets/photos/guests-of-honor/helena.png' }
+  { name: 'Elisa', photo: 'assets/photos/guests-of-honor/Elisa.JPG' },
+  { name: 'Helena', photo: 'assets/photos/guests-of-honor/Helena.JPG' }
 ];
 
 const officiant = [
-  { name: 'Maria', photo: 'assets/photos/guests-of-honor/maria.png' }
+  { name: 'Daniela', photo: 'assets/photos/guests-of-honor/Daniela.JPG' }
 ];
 
-renderGifts('groomsmen', groomsmen);
-renderGifts('bridesmaids', bridesmaids);
-renderGifts('flower-girls', flowerGirls);
-renderGifts('officiant', officiant);
+renderGuestsOfHonor('groomsmen', groomsmen);
+renderGuestsOfHonor('bridesmaids', bridesmaids);
+renderGuestsOfHonor('flower-girls', flowerGirls);
+renderGuestsOfHonor('officiant', officiant);
+renderGuestsOfHonor('parents', parents);
+

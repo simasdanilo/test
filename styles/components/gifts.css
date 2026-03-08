@@ -8,19 +8,31 @@
 .gifts-list {
   display: flex;
   flex-direction: column;
-  max-width: 360px;
-  gap: 1.5rem;
+  min-width: 360px;
+  max-width: 540px;
   padding-top: var(--space-5);
   padding-bottom: var(--space-5);
   margin: 0 auto;
 }
 
-/* ITEM */
+/* ITEM LINK*/
 .gift-container {
   display: flex;
   flex-direction: row;
   align-items: center;
   gap: 1rem;
+
+  text-decoration: none;
+  color: inherit;
+  padding: 1rem 0;
+}
+
+.gift-container:not(:last-child) {
+  border-bottom: 1px solid var(--color-divider);
+}
+
+.gift-container:active {
+  background: rgba(0, 0, 0, 0.04);
 }
 
 /* IMAGEM */

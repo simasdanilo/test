@@ -1,4 +1,3 @@
-
 /* ---------- Core Colors ---------- */
 :root {
   --color-primary: #fff;
@@ -11,4 +10,5 @@
   --color-text: #6f3720;
   --color-background: #f2edeb;
   --color-section-separator-background: #381c10;
+  --color-divider: #381c101A;
 }

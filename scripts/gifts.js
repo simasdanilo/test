@@ -9,8 +9,12 @@ function renderGifts(containerId, gifts) {
   const container = document.getElementById(containerId);
 
   gifts.forEach(gift => {
-    const item = document.createElement('div');
+    const item = document.createElement('a');
     item.className = 'gift-container';
+    item.href = gift.link;
+    item.target = "_blank";
+    item.rel = "noopener noreferrer";
+
     const cost = formatToMoney(gift.value);
 
     item.innerHTML = `
@@ -30,27 +34,66 @@ function renderGifts(containerId, gifts) {
   });
 }
 
-const custom_gifts = [
-  { description: 'Só pra não dizer que não dei nada', photo: 'assets/photos/gifts/gift-a.webp', value: 1.99 },
-  { description: 'Panela pra Felipe fazer macarrão', photo: 'assets/photos/gifts/gift-a.webp', value: 1.99 },
-  { description: 'A última corda que falta pro violão de Felipe', photo: 'assets/photos/gifts/gift-a.webp', value: 1.99 },
-  { description: 'Balança para os noivos não engordarem', photo: 'assets/photos/gifts/gift-a.webp', value: 1.99 },
-  { description: 'Taças de vinho para noites românticas', photo: 'assets/photos/gifts/gift-a.webp', value: 1.99 },
-  { description: 'Taxa para o buquê cair na sua namorada', photo: 'assets/photos/gifts/gift-a.webp', value: 1.99 },
-  { description: 'Taxa para o buquê NÃO cair na sua namorada', photo: 'assets/photos/gifts/gift-a.webp', value: 1.99 },
-  { description: 'Primeiro lugar na fila do buffet', photo: 'assets/photos/gifts/gift-a.webp', value: 1.99 },
-  { description: 'Cobertor para a noiva que está sempre coberta de razão', photo: 'assets/photos/gifts/gift-a.webp', value: 1.99 },
-  { description: 'Cueca sexy para a noite de núpcia', photo: 'assets/photos/gifts/gift-a.webp', value: 1.99 },
-  { description: 'Roupa sexy para a noiva usar na noite de núpcia', photo: 'assets/photos/gifts/gift-a.webp', value: 1.99 },
-  { description: 'Curso de culinária para Felipe', photo: 'assets/photos/gifts/gift-a.webp', value: 1.99 },
-  { description: 'Fundo de previdência para os noivos', photo: 'assets/photos/gifts/gift-a.webp', value: 1.99 },
-  { description: 'Vaquinha para ajudar os recém-casados', photo: 'assets/photos/gifts/gift-a.webp', value: 1.99 },
-  { description: 'Um ano de barba feita para o noivo', photo: 'assets/photos/gifts/gift-a.webp', value: 1.99 },
-  { description: 'Fundo emergencial para irem ao Take', photo: 'assets/photos/gifts/gift-a.webp', value: 1.99 },
-  { description: 'Cota "amigos para sempre"', photo: 'assets/photos/gifts/gift-a.webp', value: 1.99 },
-  { description: 'Seja o nosso patrocinador favorito', photo: 'assets/photos/gifts/gift-a.webp', value: 1.99 },
-  { description: 'Dei o melhor presente', photo: 'assets/photos/gifts/gift-a.webp', value: 1.99 },
-  { description: 'Poder ir junto com os noivos para a lua de mel', photo: 'assets/photos/gifts/gift-a.webp', value: 1.99 }
+const custom_gifts = [ {
+    description: 'Só pra não dizer que não dei nada',
+    photo: 'assets/photos/gifts/gift100.jfif',
+    value: 100,
+    link: 'https://nubank.com.br/cobrar/25wta/69ac843e-747f-4fdf-829d-882a314aab62'
+  },
+  {
+    description: 'A última corda que falta no violão de Felipe',
+    photo: 'assets/photos/gifts/gift200.jpg',
+    value: 200,
+    link: 'https://nubank.com.br/cobrar/25wta/69ac855e-59eb-4f9c-9ce4-18608703ee6e'
+  },
+  {
+    description: 'Panela para Felipe fazer macarrão',
+    photo: 'assets/photos/gifts/gift300.jfif',
+    value: 300,
+    link: 'https://nubank.com.br/cobrar/25wta/69ac85cd-42d8-41c6-965f-f95bfed2fce9'
+  },
+  {
+    description: 'Cobertor para a noiva que está sempre coberta de razão',
+    photo: 'assets/photos/gifts/gift400.jfif',
+    value: 400,
+    link: 'https://nubank.com.br/cobrar/25wta/69ac861e-dea3-4869-8538-1f585ab194c1'
+  },
+  {
+    description: 'Fundo emergencial para a comida Japonesa',
+    photo: 'assets/photos/gifts/gift500.jpg',
+    value: 500,
+    link: 'https://nubank.com.br/cobrar/25wta/69ac8682-908e-45bc-9f7e-6e5584dff7b4'
+  },
+  {
+    description: 'Taxa para o buquê cair na sua namorada (o)',
+    photo: 'assets/photos/gifts/gift600.jpg',
+    value: 600,
+    link: 'https://nubank.com.br/cobrar/25wta/69ac86fe-59bb-47bb-a430-0408d852eb47'
+  },
+  {
+    description: 'Taxa para o buquê NÃO cair na sua namorada (o)',
+    photo: 'assets/photos/gifts/gift700.JPG',
+    value: 700,
+    link: 'https://nubank.com.br/cobrar/25wta/69ac8754-d9cd-49a3-9a86-509dd4c558df'
+  },
+  {
+    description: 'Fundo de previdência para os noivos',
+    photo: 'assets/photos/gifts/gift800.JPG',
+    value: 800,
+    link: 'https://nubank.com.br/cobrar/25wta/69ac879d-8b51-4618-b884-b767dca34e25'
+  },
+  {
+    description: 'Seja o nosso patrocinador favorito',
+    photo: 'assets/photos/gifts/gift900.JPG',
+    value: 900,
+    link: 'https://nubank.com.br/cobrar/25wta/69ac87cc-fdbb-49a3-8417-9496422692f4'
+  },
+  {
+    description: 'Dei o melhor presente',
+    photo: 'assets/photos/gifts/gift1000.JPG',
+    value: 1000,
+    link: 'https://nubank.com.br/cobrar/25wta/69ac87f2-943f-41cf-ba47-389f5b1fe836'
+  }
 ];
 
 const CONTAINER_ID = 'gifts-list';
