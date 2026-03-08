@@ -16,6 +16,27 @@ function showToast(message) {
   }, 2000);
 }
 
+async function copyToClipboard(text) {
+  try {
+    await navigator.clipboard.writeText(text);
+    return true;
+  } catch {
+    const textarea = document.createElement("textarea");
+    textarea.value = text;
+
+    textarea.style.position = "fixed";
+    textarea.style.opacity = "0";
+
+    document.body.appendChild(textarea);
+    textarea.select();
+
+    const success = document.execCommand("copy");
+    document.body.removeChild(textarea);
+
+    return success;
+  }
+}
+
 function renderGifts(containerId, gifts) {
   const container = document.getElementById(containerId);
 
@@ -36,24 +57,19 @@ function renderGifts(containerId, gifts) {
         <p class="gift-description">${gift.description}</p>
         <span class="gift-value">${cost}</span>
       </div>
-
-      <svg class="gift-arrow" width="12" height="24" viewBox="0 0 12 24" fill="none">
-  <path d="M3 4l6 8-6 8"
-        stroke="currentColor"
-        stroke-width="2"
-        stroke-linecap="round"
-        stroke-linejoin="round"/>
-</svg>
     `;
 
     // 👇 abre o link em nova aba
     item.onclick = async () => {
-      try {
-        await navigator.clipboard.writeText(gift.pix);
+
+      const copied = await copyToClipboard(gift.pix);
+
+      if (copied) {
         showToast("✓ Pix copiado");
-      } catch (err) {
-        showToast("Erro ao copiar Pix");
+      } else {
+        showToast("Não foi possível copiar o Pix");
       }
+
       window.open(gift.link, "_blank", "noopener,noreferrer");
     };
 
