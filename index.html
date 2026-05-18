@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Derivação de Story Points</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      padding: 32px;
+      background: #0f172a;
+      color: #f8fafc;
+      font-family: Arial, sans-serif;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    h1 {
+      margin-bottom: 8px;
+    }
+
+    .subtitle {
+      color: #94a3b8;
+      margin-bottom: 32px;
+    }
+
+    .card {
+      background: #111827;
+      border: 1px solid #1f2937;
+      border-radius: 16px;
+      padding: 24px;
+      margin-bottom: 20px;
+    }
+
+    .card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 18px;
+    }
+
+    .card-title {
+      font-size: 22px;
+      font-weight: bold;
+    }
+
+    .weight-display {
+      color: #38bdf8;
+      font-size: 22px;
+      font-weight: bold;
+    }
+
+    .dots {
+      display: flex;
+      gap: 14px;
+      margin-bottom: 18px;
+    }
+
+    .dot {
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      border: 2px solid #475569;
+      background: transparent;
+      cursor: pointer;
+      transition: all .2s ease;
+    }
+
+    .dot:hover {
+      transform: scale(1.08);
+      border-color: #38bdf8;
+    }
+
+    .dot.active {
+      background: #38bdf8;
+      border-color: #38bdf8;
+    }
+
+    .description {
+      color: #cbd5e1;
+      line-height: 1.6;
+    }
+
+    .summary {
+      margin-top: 32px;
+      background: #111827;
+      border: 1px solid #1f2937;
+      border-radius: 16px;
+      padding: 28px;
+    }
+
+    .summary-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 18px;
+    }
+
+    .summary-card {
+      background: rgba(255, 255, 255, 0.03);
+      border-radius: 12px;
+      padding: 20px;
+    }
+
+    .summary-label {
+      color: #94a3b8;
+      margin-bottom: 10px;
+    }
+
+    .summary-value {
+      font-size: 34px;
+      font-weight: bold;
+    }
+
+    .story-point {
+      color: #22c55e;
+    }
+
+    .category {
+      color: #38bdf8;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 32px;
+      background: #111827;
+      border-radius: 12px;
+      overflow: hidden;
+    }
+
+    th,
+    td {
+      padding: 14px;
+      border-bottom: 1px solid #1f2937;
+      text-align: left;
+    }
+
+    th {
+      background: #1e293b;
+    }
+
+    tr:last-child td {
+      border-bottom: none;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="container">
+
+    <h1>Derivação de Story Points</h1>
+
+    <div class="subtitle">
+      Avalie as cargas para cada critério e derive automaticamente o Story Point.
+    </div>
+
+    <div id="cards"></div>
+
+    <div class="summary">
+      <h2>Resultado</h2>
+
+      <div class="summary-grid">
+
+        <div class="summary-card">
+          <div class="summary-label">Carga total</div>
+          <div class="summary-value" id="total">0</div>
+        </div>
+
+        <div class="summary-card">
+          <div class="summary-label">Story Point</div>
+          <div class="summary-value story-point" id="sp">0</div>
+        </div>
+
+        <div class="summary-card">
+          <div class="summary-label">Categoria</div>
+          <div class="summary-value category" id="category">Trivial</div>
+        </div>
+
+      </div>
+    </div>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Soma</th>
+          <th>SP</th>
+          <th>Categoria</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr>
+          <td>0</td>
+          <td>0</td>
+          <td>Trivial</td>
+        </tr>
+        <tr>
+          <td>1–2</td>
+          <td>1</td>
+          <td>Simples</td>
+        </tr>
+        <tr>
+          <td>3–4</td>
+          <td>2</td>
+          <td>Pequeno</td>
+        </tr>
+        <tr>
+          <td>5–6</td>
+          <td>3</td>
+          <td>Moderado</td>
+        </tr>
+        <tr>
+          <td>7–8</td>
+          <td>5</td>
+          <td>Grande</td>
+        </tr>
+        <tr>
+          <td>9–11</td>
+          <td>8</td>
+          <td>Complexo</td>
+        </tr>
+        <tr>
+          <td>12+</td>
+          <td>13</td>
+          <td>Refinar / Quebrar</td>
+        </tr>
+      </tbody>
+    </table>
+
+  </div>
+
+  <script>
+
+    const factors = [
+      {
+        key: "volume",
+        title: "Volume de Trabalho",
+        descriptions: [
+          "Alteração extremamente localizada.",
+          "Mudança pequena e localizada.",
+          "Mudança moderada envolvendo múltiplos pontos.",
+          "Fluxo grande ou múltiplas áreas.",
+          "Grande impacto sistêmico."
+        ]
+      },
+      {
+        key: "complexity",
+        title: "Complexidade Técnica",
+        descriptions: [
+          "Sem lógica relevante.",
+          "Lógica simples.",
+          "Integrações ou regras moderadas.",
+          "Solução tecnicamente difícil.",
+          "Complexidade estrutural extrema."
+        ]
+      },
+      {
+        key: "risk",
+        title: "Incerteza / Risco",
+        descriptions: [
+          "Comportamento conhecido.",
+          "Pequenas dúvidas.",
+          "Incertezas moderadas.",
+          "Alto risco de regressão.",
+          "Alta imprevisibilidade."
+        ]
+      },
+      {
+        key: "testing",
+        title: "Testes / Validação",
+        descriptions: [
+          "Validação mínima.",
+          "Poucos cenários simples.",
+          "Validação razoável.",
+          "Muitos cenários/regressão.",
+          "Regressão extensa e crítica."
+        ]
+      }
+    ];
+
+    const state = {
+      volume: 0,
+      complexity: 0,
+      risk: 0,
+      testing: 0
+    };
+
+    function getSP(total) {
+      if (total === 0) return { sp: 0, category: "Trivial" };
+      if (total <= 2) return { sp: 1, category: "Simples" };
+      if (total <= 4) return { sp: 2, category: "Pequeno" };
+      if (total <= 6) return { sp: 3, category: "Moderado" };
+      if (total <= 8) return { sp: 5, category: "Grande" };
+      if (total <= 11) return { sp: 8, category: "Complexo" };
+      return { sp: 13, category: "Refinar / Quebrar" };
+    }
+
+    function render() {
+
+      const container = document.getElementById("cards");
+
+      factors.forEach(factor => {
+
+        const card = document.createElement("div");
+        card.className = "card";
+
+        const header = document.createElement("div");
+        header.className = "card-header";
+
+        const title = document.createElement("div");
+        title.className = "card-title";
+        title.innerText = factor.title;
+
+        const display = document.createElement("div");
+        display.className = "weight-display";
+        display.id = `${factor.key}-display`;
+
+        header.appendChild(title);
+        header.appendChild(display);
+
+        const dots = document.createElement("div");
+        dots.className = "dots";
+
+        for (let i = 1; i <= 4; i++) {
+
+          const dot = document.createElement("button");
+          dot.className = "dot";
+
+          dot.addEventListener("click", () => {
+
+            // NOVA LÓGICA:
+            // se clicar novamente no mesmo valor, remove 1 nível
+            if (state[factor.key] === i) {
+              state[factor.key] = i - 1;
+            } else {
+              state[factor.key] = i;
+            }
+
+            updateFactor(factor.key);
+            updateSummary();
+
+          });
+
+          dots.appendChild(dot);
+        }
+
+        const description = document.createElement("div");
+        description.className = "description";
+        description.id = `${factor.key}-description`;
+
+        card.appendChild(header);
+        card.appendChild(dots);
+        card.appendChild(description);
+
+        container.appendChild(card);
+
+        updateFactor(factor.key);
+      });
+    }
+
+    function updateFactor(key) {
+
+      const value = state[key];
+
+      const display = document.getElementById(`${key}-display`);
+
+      display.innerText =
+        "●".repeat(value) + "○".repeat(4 - value);
+
+      const factor = factors.find(f => f.key === key);
+
+      document.getElementById(`${key}-description`)
+        .innerText = factor.descriptions[value];
+
+      const card = [...document.querySelectorAll(".card")]
+        .find(card => card.querySelector(`#${key}-display`));
+
+      const dots = card.querySelectorAll(".dot");
+
+      dots.forEach((dot, index) => {
+
+        if (index < value) {
+          dot.classList.add("active");
+        } else {
+          dot.classList.remove("active");
+        }
+
+      });
+
+    }
+
+    function updateSummary() {
+
+      const total =
+        state.volume +
+        state.complexity +
+        state.risk +
+        state.testing;
+
+      const result = getSP(total);
+
+      document.getElementById("total").innerText = total;
+      document.getElementById("sp").innerText = result.sp;
+      document.getElementById("category").innerText = result.category;
+
+    }
+
+    render();
+    updateSummary();
+
+  </script>
+
+</body>
+
+</html>
